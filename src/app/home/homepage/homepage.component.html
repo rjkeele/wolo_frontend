@@ -1,0 +1,210 @@
+<!--==========================
+  Intro Section
+============================-->
+<section id="intro" style="overflow: hidden;">
+
+  <div class="intro-content">
+    <!--div>
+      <a href="javascript:;" class="btn-get-started scrollto">Get Started</a>
+      <a href="javascript:;" class="btn-projects scrollto">Projects</a>
+    </div-->
+    <div class="slide-wrap">
+      <div class="slide-mask">
+        <ul class="slide-group">
+          <li class="slide"><h2>World Love</h2></li>
+          <li class="slide"><h2>Save Our Environment</h2></li>
+          <li class="slide"><h2>Take Action</h2></li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  <video width="100%" autoplay loop>
+    <source src="https://video.wixstatic.com/video/11062b_c0f82e7370a041fb92d161623b53b27a/1080p/mp4/file.mp4" type="video/mp4">
+  </video>
+
+</section><!-- #intro -->
+<hr>
+<main id="main">
+
+  <!--==========================
+    Welcome to Section
+  ============================-->
+  <section class="about wow fadeInUp">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-6 content information">
+          <h2><span>Welcome to Nature World love</span></h2>
+          <h3>WOLO serves many purposes:</h3>
+          <marquee behavior="scrolling" direction="up" scrollamount="5">
+            <ul>
+              <li>Provide information to encourage support of businesses who use sustainable practices</li>
+              <li>Crowd-source: users can refer earth-friendly businesses to be documented on WOLO,
+                and also advise us of any discrepancies listed for a business
+              </li>
+              <li>Allow businesses to be examples to each other</li>
+              <li>Donate to environmental causes</li>
+              <li>Donate to research</li>
+              <li>Provide information regarding news and events</li>
+              <li>Encourage the philosophy of reduce, reuse, recycle, repair, etc.</li>
+            </ul>
+          </marquee>
+        </div>
+
+        <div class="col-lg-6 about-img">
+          <img src="../assets/img/home_5.png" height="360">
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- #about -->
+  <hr>
+  <!--==========================
+    Welcome to Section
+  ============================-->
+  <section class="about wow fadeInUp">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 about-img">
+          <img src="../assets/img/home_6.png">
+        </div>
+
+        <div class="col-lg-6 content information">
+          <h2><span>Welcome to Nature World love</span></h2>
+          <h3>WOLO serves many purposes:</h3>
+
+          <marquee behavior="scroll" direction="up" scrollamount="5">
+            <ul>
+              <li>Provide information to encourage support of businesses who use sustainable practices</li>
+              <li>Crowd-source: users can refer earth-friendly businesses to be documented on WOLO,
+                and also advise us of any discrepancies listed for a business
+              </li>
+              <li>Allow businesses to be examples to each other</li>
+              <li>Donate to environmental causes</li>
+              <li>Donate to research</li>
+              <li>Provide information regarding news and events</li>
+              <li>Encourage the philosophy of reduce, reuse, recycle, repair, etc.</li>
+            </ul>
+          </marquee>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- #about -->
+
+
+  <!--==========================
+    Services Section
+  ============================-->
+  <!--section id="services">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Services</h2>
+        <p>We provide all of your industrial solution</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4" *ngFor="let service of services; let i = index" id="{{service._id}}">
+          <div class="box wow fadeInLeft">
+            <div>
+              <img class="service_img" src="{{service.img}}" />
+            </div>
+            <p class="description">{{service.description}}</p>
+            <div style="height: 40px;padding-right: 20px;"><button class="btn btn-success" style="border-radius: 20px;float: right;">Read More</button></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section--><!-- #services -->
+
+  <!--==========================
+    MAP Section
+  ============================-->
+  <hr>
+  <section id="map" class="wow fadeInUp">
+    <div class="container">
+      <agm-map 
+        [latitude]="lat"
+        [longitude]="lng"
+        [zoom]="zoom"
+        [disableDefaultUI]="false"
+        [zoomControl]="false">
+      
+        <agm-marker 
+            *ngFor="let m of markers; let i = index"
+            [label]="{text:''+m.practices.length+''}"
+            [latitude]="m.lat"
+            [longitude]="m.lng"
+            >
+          
+            <div class="info-content">
+              <agm-info-window [isOpen]="false" #infowindow >
+                  <div>
+                    <h4 style="color: blue">{{m.locationName}}</h4>
+                  </div>
+                  <div class="agm-info-content">
+                    <div class="content-row">
+                      <h6>Practices</h6>
+                      <div  *ngIf="m.practices.length>0" width="auto">
+                        <ul *ngFor="let practice of m.practices; let i = index">
+                          <li>{{practice}}</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+              </agm-info-window>
+            </div>
+          
+        </agm-marker>
+
+
+      </agm-map>
+    
+    </div>
+  </section>
+  <hr>
+  <!--==========================
+    About Section
+  ============================-->
+  <section  class="wow fadeInUp takelook" style="background-image: url('../assets/img/home_7.png');">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 content">
+          <h2>Take a look around <br> projects </h2>
+          <h3>Waters make fish every without firmament saw had.</h3>
+          <div style="width: 360px;margin-left: calc(50% - 150px);">
+            <button><fa name="arrow-left" style="color: white;"></fa></button>
+            <button><fa name="arrow-right" style="color: white;"></fa></button>
+          </div>
+          <br>
+        </div>
+
+        <div class="col-lg-6 about-img">
+          <img src="../assets/img/home_4.png">
+          <br><br>
+          <h3><b>
+            WOLO serves many purposes:
+          </b></h3>
+          <ul style="color: white">
+            <li>Provide information to encourage support of businesses who use sustainable practices</li>
+            <li>Crowd-source: users can refer earth-friendly businesses to be documented on WOLO,
+              and also advise us of any discrepancies listed for a business</li>
+            <li>Allow businesses to be examples to each other</li>
+            <li>Donate to environmental causes</li>
+            <li>Donate to research</li>
+            <li>Provide information regarding news and events</li>
+            <li>Encourage the philosophy of reduce, reuse, recycle, repair, etc.</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- #about -->
+
+</main>
+

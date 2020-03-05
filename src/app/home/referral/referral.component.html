@@ -1,0 +1,45 @@
+<div class="top">
+  <div>
+    <h2>Referral</h2>
+  </div>
+</div>
+
+<div style="background-color: #cbd1d3; padding: 20px 0;">
+  <div class="container referral_form">
+    <div class="row">
+      <div class="col-md-6">
+        <label class="form-label">Name</label>
+        <input [(ngModel)]="name" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Email</label>
+        <input [(ngModel)]="email" class="form-control">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label class="form-label">Business Name</label>
+        <input [(ngModel)]="businessName" class="form-control">
+        <label class="form-label">Business Address</label>
+        <input [(ngModel)]="address" class="form-control">
+        <label class="form-label">Business Phone</label>
+        <input [(ngModel)]="phone" class="form-control">
+        <label class="form-label">City</label>
+        <input [(ngModel)]="city" class="form-control">
+        <label class="form-label">State</label>
+        <input [(ngModel)]="state" class="form-control">
+        <label class="form-label">Zip</label>
+        <input [(ngModel)]="zip" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Comment</label>
+        <textarea
+          [(ngModel)]="comment" class="form-control" style="height: 16rem;"
+          placeholder="What sustainable practices do you see, or what WOLO information is not accurate about this business?"
+        ></textarea>
+        <br>
+        <button (click)="saveEvent()" type="button" class="btn btn-success" style="float: right;">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

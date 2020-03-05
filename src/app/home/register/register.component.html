@@ -1,0 +1,25 @@
+<div class="login_container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 login_img"></div>
+            <div class="col-md-6" style="padding-top: 1.5rem;">
+                <div class="form_container">
+                    <input type="text" class="form-control form-rounded" [(ngModel)]="email" placeholder="johndoe123@email.com">
+                </div>
+                <div class="form_container">
+                    <input type="text" class="form-control form-rounded" [(ngModel)]="fullname" placeholder="John Doe">
+                </div>
+                <div class="form_container">
+                    <input type="password" class="form-control form-rounded" [(ngModel)]="password" placeholder="******">
+                </div>
+                <div class="form_container">
+                    <input type="password" class="form-control form-rounded" [(ngModel)]="confirm" placeholder="******">
+                </div>
+                <div class="form_container">
+                    <button (click)="sign_up()" type="button" class="form-control form-rounded btn-success sign_up_btn">Sign Up</button>
+                    <button routerLink="/home" type="button" class="form-control form-rounded btn-danger cancel_btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

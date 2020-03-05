@@ -1,0 +1,51 @@
+<div class="container">
+  <span class="update" (click)="createPractice()">
+    <button type="button" class="btn btn-primary btn-sm">Create</button>
+  </span>
+  <table class="table table-hover">
+    <thead>
+    <tr style="font-weight: bold">
+      <td>No</td>
+      <td>Description</td>
+      <td>Action</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let practice of practices; let i = index;" id="{{practice._id}}">
+      <td>{{ i+1 }}</td>
+      <td>{{practice.description}}</td>
+      <td class="text-center edit-block">
+          <span class="update" (click)="updateItem(practice, i)">
+            <button type="button" class="btn btn-success btn-sm">Update</button>
+          </span>
+        <span class="delete" (click)="removeItem(practice._id, i)">
+            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+          </span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 *ngIf="addOrUpdate == 'add'" class="modal-title">Add Practice</h4>
+        <h4 *ngIf="addOrUpdate == 'update'" class="modal-title">Update Practice</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <label class="form-label">Description</label>
+        <textarea [(ngModel)]="description" class="form-control"></textarea>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button (click)="savePractice()" type="button" class="btn btn-success">Save</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

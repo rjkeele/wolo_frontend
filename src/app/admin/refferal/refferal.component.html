@@ -1,0 +1,77 @@
+
+<div class="container">
+    <!--span class="update" (click)="createEvent()">
+      <button type="button" class="btn btn-primary btn-sm">Create</button>
+    </span-->
+    <table class="table table-hover">
+      <thead>
+        <tr style="font-weight: bold">
+          <td>Name</td>
+          <td>Email</td>
+          <td>Business Name</td>
+          <td>Address</td>
+          <td>City</td>
+          <td>State</td>
+          <td>Zip</td>
+          <td>Comment</td>
+          <td>Action</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events; let i = index" id="{{event._id}}">
+          <td>{{event.name}}</td>
+          <td>{{event.email}}</td>
+          <td>{{event.businessName}}</td>
+          <td>{{event.address}}</td>
+          <td>{{event.city}}</td>
+          <td>{{event.state}}</td>
+          <td>{{event.zip}}</td>
+          <td>{{event.comment}}</td>
+          <td class="text-center edit-block">
+            <!--span class="update" (click)="updateItem(event, i)">
+              <button type="button" class="btn btn-success btn-sm">Update</button>
+            </span-->
+            <span class="delete" (click)="removeItem(event._id, i)">
+              <button type="button" class="btn btn-danger btn-sm">Delete</button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Update</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+          <label class="form-label">Name</label>
+          <input [(ngModel)]="name" class="form-control">
+          <label class="form-label">Email</label>
+          <input [(ngModel)]="email" class="form-control">
+          <label class="form-label">Business Name</label>
+          <input [(ngModel)]="businessName" class="form-control">
+          <label class="form-label">Address</label>
+          <input [(ngModel)]="address" class="form-control">
+          <label class="form-label">City</label>
+          <input [(ngModel)]="city" class="form-control">
+          <label class="form-label">State</label>
+          <input [(ngModel)]="state" class="form-control">
+          <label class="form-label">Zip</label>
+          <input [(ngModel)]="zip" class="form-control">
+          <label class="form-label">Comment</label>
+          <input [(ngModel)]="comment" class="form-control">
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button (click)="saveEvent()" type="button" class="btn btn-success">Save</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>

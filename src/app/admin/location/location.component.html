@@ -1,0 +1,101 @@
+<div class="container">
+  <span class="update" (click)="createLocation()">
+    <button type="button" class="btn btn-primary btn-sm">Create</button>
+  </span>
+  <table class="table table-hover">
+    <thead>
+      <tr style="font-weight: bold">
+        <td>Business Name</td>
+        <td>Address</td>
+        <td>City</td>
+        <td>State</td>
+        <td>Zip</td>
+        <td>Practice</td>
+        <td>Action</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let marker of markers; let i = index" id="{{marker._id}}">
+        <td>{{marker.locationName}}</td>
+        <td>{{marker.address}}</td>
+        <td>{{marker.city}}</td>
+        <td>{{marker.state}}</td>
+        <td>{{marker.zip}}</td>
+        <td>
+          <!--<span *ngFor="let practice of marker.practices;">{{practice.comment}}&nbsp;</span>-->
+          <span>{{marker.practices.length}} &nbsp;</span>
+          <button class="btn btn-primary btn-sm" (click)="appendPractice(marker, i)"><fa name="plus"></fa></button>
+        </td>
+        <td class="text-center edit-block">
+          <span class="update" (click)="updateLocation(marker, i)">
+            <button type="button" class="btn btn-success btn-sm">Update</button>
+          </span>
+          <span class="delete" (click)="removeLocation(marker._id, i)">
+            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 *ngIf="addOrUpdate == 'add'" class="modal-title">Add Location</h4>
+        <h4 *ngIf="addOrUpdate == 'update'" class="modal-title">Update Location</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <label class="form-label">Business Name</label>
+        <input [(ngModel)]="locationName" class="form-control">
+        <label class="form-label">Address</label>
+        <input [(ngModel)]="address" class="form-control">
+        <label class="form-label">City</label>
+        <input [(ngModel)]="city" class="form-control">
+        <label class="form-label">State</label>
+        <input [(ngModel)]="state" class="form-control">
+        <label class="form-label">Zip</label>
+        <input [(ngModel)]="zip" class="form-control">
+        <label class="form-label">Latitude</label>
+        <input [(ngModel)]="lat" class="form-control" type="number">
+        <label class="form-label">Longitude</label>
+        <input [(ngModel)]="lng" class="form-control" type="number">
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button (click)="saveLocationName()" type="button" class="btn btn-success">Save</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="myModal2">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Select practices</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <!--<textarea [(ngModel)]="newComment" class="form-control"></textarea>-->
+        <div *ngFor="let practice of practices; let i = index" id="{{practice._id}}">
+          <input type="checkbox" id="{{i}}" name="{{practice._id}}" value="{{practice.description}}">
+          <label for="{{i}}">{{practice.description}}</label>
+        </div>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button (click)="saveNewPractice()" type="button" class="btn btn-success">Save</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+

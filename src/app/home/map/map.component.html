@@ -1,0 +1,33 @@
+<section id="map" class="wow fadeInUp">
+  <agm-map 
+    [latitude]="lat"
+    [longitude]="lng"
+    [zoom]="zoom"
+    [disableDefaultUI]="false"
+    [zoomControl]="false">
+  
+    <agm-marker 
+        *ngFor="let m of markers; let i = index"
+        [label]="{text:''+ m.practices.length +''}"
+        [latitude]="m.lat"
+        [longitude]="m.lng">
+        
+        <div class="info-content">
+          <agm-info-window [isOpen]="false" #infowindow [maxWidth]="250">
+              <div>
+                <h6>{{m.locationName}}</h6>
+              </div>
+              <div class="agm-info-content">
+                  <h6>Practices</h6>
+                  <div  *ngIf="m.practices.length>0" width="auto">
+                    <ul *ngFor="let practice of m.practices; let i = index">
+                      <li>{{practice}}</li>
+                    </ul>
+                  </div>
+                </div>
+          </agm-info-window>
+        </div>
+      
+    </agm-marker>
+  </agm-map>
+</section>

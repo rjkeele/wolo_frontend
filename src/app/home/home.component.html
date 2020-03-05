@@ -1,0 +1,159 @@
+<!-- Libraries CSS Files -->
+<link href="../assets/reveal/lib/animate/animate.min.css" rel="stylesheet" type="text/css" />
+<link href="../assets/reveal/lib/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+<link href="../assets/reveal/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" type="text/css" />
+<link href="../assets/reveal/lib/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="../assets/reveal/css/style.css" />
+
+<!--==========================
+  Top Bar
+============================-->
+<section id="topbar" class="d-none d-lg-block" style="background-color: green;color: white;">
+  <div class="container clearfix">
+    <div class="contact-info float-left">
+      <i class="fa fa-phone"></i> 
+      <i class="fa fa-envelope-o"></i> <a href="javascript:;" (click)="openMailDlg()">{{mail_to}}</a>
+    </div>
+    <div class="social-links float-right">
+      <a routerLink="/home/login">Login</a>
+      <a routerLink="/home/register">Register</a>
+    </div>
+  </div>
+</section>
+
+<div class="modal" id="myModal_mail_to">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Send mail to {{mail_to}}</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body" *ngIf=" ! this.is_sending">
+        <label class="form-label">Your mail</label>
+        <input [(ngModel)]="send_from" class="form-control" placeholder="jhon119@gmail.com" type="email">
+        <label class="form-label">Password</label>
+        <input [(ngModel)]="password" class="form-control" type="password" placeholder="********">
+        <label class="form-label">Subject</label>
+        <input [(ngModel)]="subject" class="form-control">
+        <label class="form-label">Text</label>
+        <textarea [(ngModel)]="mailtext" class="form-control"></textarea>
+      </div>
+      <div class="modal-body" *ngIf="this.is_sending" style="text-align: center;">
+        <fa style="font-size: 40px;" name="cog" animation="spin"></fa>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button (click)="sendNewMail()" type="button" class="btn btn-success">Send</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--==========================
+  Header
+============================-->
+<header id="header">
+  <div class="container">
+
+    <div id="logo" class="pull-left" style="margin-top: -10px;">
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <a routerLink="/home/home"><img src="../assets/reveal/img/logo.png"  style="max-height: 66px!important;" width="66px" height="66px" alt="" title="" /></a>
+    </div>
+
+    <nav id="nav-menu-container">
+      <ul class="nav-menu">
+        <li><a routerLink="/home/home">Home</a></li>
+        <li><a routerLink="/home/about">About Us</a></li>
+        <li><a routerLink="/home/recommend">Recommend</a></li>
+        <li><a routerLink="/home/explore">Explore</a></li>
+        <li><a routerLink="/home/participate">Participate</a></li>
+        <li><a routerLink="/home/contactus">Contact Us</a></li>
+      </ul>
+    </nav><!-- #nav-menu-container -->
+
+    <nav id="nav-menu-container-mobile">
+      <ul class="nav-menu">
+        <li class="menu-has-children"><a href="javascript:;">Menu</a>
+          <ul>
+            <li><a routerLink="/home/home">Home</a></li>
+            <li><a routerLink="/home/about">About Us</a></li>
+            <li><a routerLink="/home/recommend">Referral</a></li>
+            <li><a routerLink="/home/explore">Explore</a></li>
+            <li><a routerLink="/home/participate">Participate</a></li>
+            <li><a routerLink="/home/contactus">Contact Us</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav><!-- #nav-menu-container-mobile -->
+
+    <nav>
+      <ul class="nav-menu" style="float: right;">
+        <!--li><a href="javascript:;"><i class="fa fa-search"></i></a></li-->
+        <li><a routerLink="/home/map" style="background-color: green; border-radius: 16px;padding: 10px 20px;color: white;">Locate</a></li>
+      </ul>
+    </nav>
+  </div>
+</header><!-- #header -->
+
+<router-outlet></router-outlet>
+
+<!--==========================
+  Footer
+============================-->
+<footer id="footer">
+  <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <h2>Quick Links</h2>
+          <h6 routerLink="/home/home" style="cursor: pointer;">Home</h6>
+          <h6 routerLink="/home/about" style="cursor: pointer;">About Us</h6>
+          <h6 routerLink="/home/service">Services</h6>
+          <h6 routerLink="/home/contactus" style="cursor: pointer;">Contact Us</h6>
+        </div>
+
+        <div class="col-lg-3">
+
+        </div>
+
+        <div class="col-lg-4 out_link">
+          <h2>Stay Connected</h2>
+          <a href="https://www.instagram.com/" style="background-color:rgb(230, 59, 59);font-size:30px;border-radius: 30px;padding:8px 16px">
+            <fa name="instagram"></fa>
+          </a>
+          <a href="https://www.facebook.com/" style="background-color:rgb(65, 85, 196);font-size:30px;border-radius: 30px;padding:8px 19px">
+            <fa name="facebook"></fa>
+          </a>
+          <a href="https://twitter.com/" style="background-color:rgb(36, 184, 230);font-size:30px;border-radius: 30px;padding:8px 14px">
+            <fa name="twitter"></fa>
+          </a>
+          <!--<a href="javascript:;" style="background-color:rgb(31, 127, 165);font-size:30px;border-radius: 30px;padding:8px 16px">-->
+            <!--<fa name="linkedin"></fa>-->
+          <!--</a>-->
+          <!--<a href="javascript:;" style="background-color:rgb(199, 75, 75);font-size:30px;border-radius: 30px;padding:8px 8px">-->
+            <!--<fa name="google-plus"></fa>-->
+          <!--</a>-->
+        </div>
+      </div>
+  </div>
+</footer><!-- #footer -->
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+<!-- JavaScript Libraries -->
+<script src="/src/assets/reveal/lib/easing/easing.min.js"></script>
+<script src="/src/assets/reveal/lib/superfish/hoverIntent.js"></script>
+<script src="/src/assets/reveal/lib/superfish/superfish.min.js"></script>
+<script src="/src/assets/reveal/lib/wow/wow.min.js"></script>
+<script src="/src/assets/reveal/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="/src/assets/reveal/lib/magnific-popup/magnific-popup.min.js"></script>
+<script src="/src/assets/reveal/lib/sticky/sticky.js"></script>
+
+<!-- Contact Form JavaScript File -->
+<script src="/src/assets/reveal/contactform/contactform.js"></script>
+
+<!-- Template Main Javascript File -->
+<script src="/src/assets/reveal/js/main.js"></script>

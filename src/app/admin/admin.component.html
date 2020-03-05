@@ -1,0 +1,99 @@
+<link href="../assets/dashboard/css/light-bootstrap-dashboard.css" rel="stylesheet" />
+<link href="../assets/dashboard/css/demo.css" rel="stylesheet" />
+
+
+
+<div class="wrapper">
+    <div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
+        
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a routerLink="/admin/dashboard" class="simple-text">
+                    WORLD LOVE
+                </a>
+            </div>
+            <ul class="nav">
+                <li>
+                    <a class="nav-link" routerLink="/admin/user">
+                        <fa name="user"></fa>&nbsp;
+                        <p>User</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" routerLink="/admin/explore">
+                        <fa name="cog"></fa>&nbsp;
+                        <p>Explores</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" routerLink="/admin/recommend">
+                        <fa name="cog"></fa>&nbsp;
+                        <p>Recommends</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" routerLink="/admin/participate">
+                        <fa name="cog"></fa>&nbsp;
+                        <p>Participates</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" routerLink="/admin/location">
+                        <fa name="cog"></fa>&nbsp;
+                        <p>Locations</p>
+                    </a>
+                </li>
+              <li>
+                <a class="nav-link" routerLink="/admin/practice">
+                  <fa name="cog"></fa>&nbsp;
+                  <p>Practices</p>
+                </a>
+              </li>
+                <li>
+                    <a class="nav-link" routerLink="/admin/maps">
+                        <fa name="map"></fa>&nbsp;
+                        <p>Maps</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse justify-content-end" id="navigation">
+
+                  <button (click)="log_out()" type="button" class="btn btn-success">Log Out</button>
+
+                </div>
+            </div>
+        </nav>
+        <!-- End Navbar -->
+        <div class="content">
+            <div class="container-fluid">
+
+                <router-outlet></router-outlet>
+
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav>
+                    <ul class="footer-menu">
+                        <li>
+                            <a routerLink="/">
+                                Home
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-center">
+                        ©
+                        <a href="javascript:;">World </a> Love
+                    </p>
+                </nav>
+            </div>
+        </footer>
+    </div>
+</div>
+

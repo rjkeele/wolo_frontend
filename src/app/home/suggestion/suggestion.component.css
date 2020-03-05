@@ -1,0 +1,14 @@
+.top {
+    padding-top: calc(30rem + 61px);
+    width: 100%;
+    background-image: url('../../../assets/img/suggestion.jpg');
+    background-size: 100% 100%;
+}
+
+.top h2 {
+    font-size: 45px;
+    color: #679140;
+    text-align: right;
+    margin: 0 20px;
+    padding: 5px 0;
+}

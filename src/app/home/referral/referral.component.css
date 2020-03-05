@@ -1,0 +1,24 @@
+
+.top {
+    padding-top: calc(20rem + 61px);
+    width: 100%;
+    background-image: url('../../../assets/img/refferal.jpg');
+    background-size: auto 100%;
+}
+
+.top h2 {
+    font-size: 45px;
+    color: white;
+    text-align: right;
+    margin: 0 20px;
+    padding: 5px 0;
+}
+
+.referral_form input, .referral_form textarea {
+    border-radius: 20px;
+    padding-left: 20px;
+}
+
+.referral_form label {
+    margin: 5px 0 5px 20px;
+}

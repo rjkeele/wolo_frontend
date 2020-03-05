@@ -1,0 +1,21 @@
+
+.top {
+      padding-top: calc(20rem + 61px);
+      width: 100%;
+      background-image: url('../../../assets/img/RecyclingThumb.jpg');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+}
+@media(max-width:768px) {
+      .top {
+            background-size: auto 100%;
+      } 
+}
+  
+.top h2 {
+      font-size: 45px;
+      color: white;
+      text-align: right;
+      margin: 0 20px;
+      padding: 5px 0;
+}

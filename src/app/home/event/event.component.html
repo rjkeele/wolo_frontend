@@ -1,0 +1,79 @@
+<!--==========================
+  Intro Section
+============================-->
+<div class="top">
+  <div>
+    <h2>Participates</h2>
+  </div>
+</div>
+
+<hr>
+
+<div class="container">
+
+  <div *ngFor="let event of events; let i = index" id="{{event._id}}">
+    <div *ngIf="i < 2" >
+      <div class="row">
+        <div class="col-md-4">
+          <img width="100%" src="{{event.img}}">
+        </div>
+        <div class="col-md-8">
+          <h2>Thanks for {{event.title}}</h2>
+          <p>{{event.description}}</p>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div *ngFor="let event of events; let i = index" id="{{event._id}}"  class="col-6" >
+      <div *ngIf="i < 2" class="container card">
+        <div class="row">
+          <div class="col-md-6">
+            <h3>{{event.title}}</h3><br>
+          </div>
+          <div class="col-md-6">
+            <p>Location : {{event.location}}</p>
+            <p>Date : {{event.e_date}}</p>
+            <p>Time : {{event.e_time}}</p>
+          </div>
+          <button (click)="signupEvent(event)" class="btn btn-success btn-xs sign_up_btn">Sign Up</button>
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<hr>
+
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Sign up event</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <label class="form-label">Name</label>
+        <input [(ngModel)]="name" class="form-control">
+        <label class="form-label" style="color: rgb(223, 52, 37);">*If you want register, please fill follow input</label><br>
+        <label class="form-label">Email</label>
+        <input [(ngModel)]="email" class="form-control">
+        <label class="form-label">Contact</label>
+        <input [(ngModel)]="contact" class="form-control">
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button (click)="save_signup_Event()" type="button" class="btn btn-success">Sign up</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

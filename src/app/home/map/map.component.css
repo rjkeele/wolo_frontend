@@ -1,0 +1,20 @@
+agm-map {
+    height: 48rem;
+}
+
+.tittle{
+  color: red;
+  font-weight: bold;
+}
+.content{
+  color:blue;
+  font-weight: bold;
+}
+h6{
+  color: brown;
+  font-weight: bold;
+}
+.info-content{
+  background-color: chartreuse;
+  z-index: 10;
+}

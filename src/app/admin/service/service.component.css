@@ -1,0 +1,7 @@
+td > img {
+    width: 80px;
+}
+td {
+  text-align: center;
+  vertical-align: middle;
+}
